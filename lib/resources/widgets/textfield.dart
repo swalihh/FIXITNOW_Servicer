@@ -21,6 +21,7 @@ class CustomTextField extends StatelessWidget {
     return TextFormField(
       controller: controller,
       obscureText: obscureText,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       style: const TextStyle(
         color: Colors.black,
       ),

@@ -1,9 +1,9 @@
- import 'package:http/http.dart' as http;
-class Repo{
-userSignup()async{
-  final url ='http://10.0.2.2:5000/servicer/signup';
-final uri=Uri.parse(url);
-var responce = await http.post(uri);
+
+import 'package:servicer/data/network/apiservice.dart';
+class AuthRepo{
+EitherResponse userSignup(var rawData)async{
+  final url ='http://10.4.6.54:5000/servicer/signup';
+return await ApiServices.postApi(rawData, url);
 
 }
 

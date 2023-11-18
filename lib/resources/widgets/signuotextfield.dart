@@ -33,6 +33,7 @@ class SignUpTextField extends StatelessWidget {
             style: labelStyle, // Apply the labelStyle if provided
           ),
         TextFormField(
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller,
           obscureText: obscureText,
           keyboardType: keyboardType,

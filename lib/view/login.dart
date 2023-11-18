@@ -24,7 +24,7 @@ class Login extends StatelessWidget {
                 ),
                   Text(
                   Loginstring.login,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                  style:const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 SizedBox(
                     width: screenSize.width,

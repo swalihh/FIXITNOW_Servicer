@@ -11,4 +11,5 @@ class TextType {
       const TextStyle(fontWeight: FontWeight.w500,
       fontFamily: 'Lato',
        fontSize: 17);
+       
 }

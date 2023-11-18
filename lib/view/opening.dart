@@ -58,7 +58,7 @@ class Opening extends StatelessWidget {
                       style: const ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color.fromARGB(255, 241, 198, 83))),
                       onPressed: (){
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-                          return const SignUp();
+                          return  SignUp();
                         },));
                       }, child: const Text('   REGISTER   ',style: TextStyle(fontWeight: FontWeight.bold),)),
                         ElevatedButton(
