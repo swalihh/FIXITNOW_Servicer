@@ -16,3 +16,13 @@ final class SignUpSuccessState extends SignupState{
  final class SignUploadingState extends SignupState{}
  final class OtpMatchedState extends SignupState{}
  final class OtpNotMatchState extends SignupState{}
+ final class RegistrationSuccessState extends SignupState{
+
+ }
+  final class RegistrationErrorState extends SignupState{
+
+ }
+  final class RegistrationLoadingState extends SignupState{
+
+ }
+ 

@@ -9,20 +9,20 @@ class ApiServices {
   static final _headers = {'Content-Type': 'application/json'};
 
   static EitherResponse<Map> postApi(var rawData, String url,
-      [String? userId]) async {
+     ) async {
     Map fetchedData = {};
-    if (userId != null) {
-      _headers['userId'] = userId;
-    }
     final uri = Uri.parse(url);
     final body = jsonEncode(rawData);
     try {
       final response = await http.post(uri, body: body, headers: _headers);
+      print(response.body);
       fetchedData = _getResponse(response);
       return Right(fetchedData);
     } on SocketException {
+      print('socket ');
       return Left(InternetException());
     } on http.ClientException {
+      
       return Left(RequestTimeOUtException());
     } catch (e) {
       print(e);

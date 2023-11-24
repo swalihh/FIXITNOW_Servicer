@@ -27,10 +27,10 @@ class CustomTextField extends StatelessWidget {
       ),
       decoration: InputDecoration(
         filled: true,
-        fillColor: Color.fromARGB(255, 224, 224, 224),
+        fillColor: const Color.fromARGB(255, 224, 224, 224),
         hintText: hintText,
         prefixIcon: prefixIcon,
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       validator: validator, 
     );

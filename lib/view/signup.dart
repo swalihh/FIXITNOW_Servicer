@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:servicer/bloc/bloc/signup_bloc.dart';
+import 'package:flutter/material.dart'; 
+import 'package:servicer/bloc/sign_up/signup_bloc.dart';
 import 'package:servicer/resources/strings/login0string.dart';
 import 'package:servicer/resources/widgets/loadingbutton.dart';
 import 'package:servicer/resources/widgets/signuotextfield.dart';

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SignUpTextField extends StatelessWidget {
+class DescriptionTextField extends StatelessWidget {
   final TextEditingController? controller;
   final Icon? prefixIcon;
   final String? hintText;
@@ -12,7 +12,7 @@ class SignUpTextField extends StatelessWidget {
   final int? maxLines;
   final int? maxLength;
 
-  const SignUpTextField({
+  const DescriptionTextField({
     Key? key,
     this.controller,
     this.prefixIcon,
@@ -39,10 +39,10 @@ class SignUpTextField extends StatelessWidget {
         TextFormField(
           autovalidateMode: AutovalidateMode.onUserInteraction,
           controller: controller,
-          obscureText: obscureText,
+         // obscureText: obscureText,
           keyboardType: keyboardType,
-          // maxLines: maxLines, 
-          // maxLength: maxLength, 
+          maxLines: maxLines, 
+          maxLength: maxLength, 
           style: const TextStyle(
             color: Colors.black,
           ),
