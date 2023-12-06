@@ -4,7 +4,7 @@ import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
 import 'package:servicer/utils/appexception.dart';
 
-typedef  EitherResponse<T>= Future <Either<AppException,T>>;
+typedef   EitherResponse<T>= Future <Either<AppException,T>>;
 class ApiServices {
   static final _headers = {'Content-Type': 'application/json'};
 
@@ -15,8 +15,13 @@ class ApiServices {
     final body = jsonEncode(rawData);
     try {
       final response = await http.post(uri, body: body, headers: _headers);
-      print(response.body);
+      print('row data ----------------------------daata');
+    print(rawData
+    );
       fetchedData = _getResponse(response);
+      print('response ----------------------------daata');
+
+      print(fetchedData);
       return Right(fetchedData);
     } on SocketException {
       print('socket ');

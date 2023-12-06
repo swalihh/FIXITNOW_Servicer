@@ -34,7 +34,7 @@ class ImageContainer extends StatelessWidget {
           dashPattern: const [3, 6],
           child: Container(
             height: screenSize.height / 8,
-            width: screenSize.width / 3 + 20,
+            width: screenSize.width / 3 + 12,
             decoration: BoxDecoration(
               image: imageProvider != null
                   ? DecorationImage(

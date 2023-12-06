@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
-import 'package:servicer/data/network/network.api.dart';
+import 'package:servicer/repositories/authrepos.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
 
 part 'signup_event.dart';

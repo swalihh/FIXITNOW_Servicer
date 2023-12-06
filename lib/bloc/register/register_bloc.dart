@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:servicer/data/network/firebasestorage.dart';
-import 'package:servicer/data/network/network.api.dart';
+import 'package:servicer/repositories/authrepos.dart';
 part 'register_event.dart';
 part 'register_state.dart';
 
@@ -43,8 +43,14 @@ Map<String, File> images={
      verificationDocument['servicecatagory']=event.jobType;
      verificationDocument['amount']=int.parse(event.amount);
      verificationDocument['location']=event.description;
-     verificationDocument['servicerimage']=await addTofirebase(images['document']);
-    verificationDocument['servicerdocument']= await addTofirebase(images['image']);
+     verificationDocument['servicerimage']=await addTofirebase(images['image']);
+    verificationDocument['servicerdocument']= await addTofirebase(images['document']);
+    print('-----------------------------------------77777777777777777777777777777777777777777777777777777');
+print(verificationDocument['servicerimage']);
+print(verificationDocument['servicerdocument']);
+
+
+   
 
     final details= await AuthRepo().registerUser(verificationDocument);
         details.fold((error){

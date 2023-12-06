@@ -8,7 +8,7 @@ import 'package:servicer/bloc/sign_up/signup_bloc.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
 import 'package:servicer/view/opening.dart';
 import 'package:servicer/view/register.dart';
-import 'package:servicer/view/waitingpage.dart';
+
 
 import 'firebase_options.dart';
 void main() async{
@@ -33,7 +33,7 @@ class Myapp extends StatelessWidget {
       ],
       child:  MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Opening(),
+        home:  Opening(),
       ),
     );
   }

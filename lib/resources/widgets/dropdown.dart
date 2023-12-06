@@ -15,15 +15,14 @@ class DropDownWid extends StatefulWidget {
 
 class _DropDownWidState extends State<DropDownWid> {
   String selectedItem = "--choose--";
-  String dynamicText = "";
+  String customText = "";
   TextEditingController othersInputController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     final transList = ['Plumber', 'Electrician', 'Cleaning', 'Painting', 'Cooking', 'Others'];
 
-    final TextStyle labelStyle =
-        GoogleFonts.poppins(fontWeight: FontWeight.w600);
+    final TextStyle labelStyle = GoogleFonts.poppins(fontWeight: FontWeight.w600);
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +46,7 @@ class _DropDownWidState extends State<DropDownWid> {
             return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(result, style:   labelStyle),
+                Text(result, style: labelStyle),
                 const Icon(Icons.circle_outlined),
               ],
             );
@@ -57,11 +56,11 @@ class _DropDownWidState extends State<DropDownWid> {
               selectedItem = newValue;
 
               if (selectedItem == "Others") {
-                dynamicText = "Please specify the service you require:";
-                othersInputController.clear(); 
+                customText = "Please specify the service you require:";
+                othersInputController.clear();
               } else {
-                dynamicText = "";
-                othersInputController.text = ""; 
+                customText = "";
+                othersInputController.text = "";
               }
             });
           },
@@ -86,4 +85,3 @@ class _DropDownWidState extends State<DropDownWid> {
     );
   }
 }
- 

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -103,15 +102,16 @@ class Registeration extends StatelessWidget {
                               // ignore: prefer_const_constructors
                               return ImageContainer(
                                 labelText: 'Verifiacation Document',
-                                childText: 'Tap to add Document',
+                                childText: ' Add Document',
                               );
                             }
                           },
                         )),
+
                         InkWell(onTap: () async {
                           final image = await ImagePickService().pickCropImage(
                               cropAspectRatio:
-                                  const CropAspectRatio(ratioX: 16, ratioY: 20),
+                                  const CropAspectRatio(ratioX: 2.0, ratioY: 3.0),
                               imageSource: ImageSource.gallery);
                           if (image == null) {
                             return;
@@ -135,7 +135,7 @@ class Registeration extends StatelessWidget {
                             } else {
                               return const ImageContainer(
                                 labelText: 'photo',
-                                childText: 'Tap to Add Photo',
+                                childText: 'Add Photo',
                               );
                             }
                           },
@@ -157,7 +157,7 @@ class Registeration extends StatelessWidget {
                       validator: (p0) => Validations.isEmpty(p0, 'Location'),
                       controller: locationcontroller,
                       label: 'Location',
-                      labelStyle: TextType.labels,
+                      labelStyle: TextType.labels, 
                       prefixIcon: const Icon(Icons.location_on),
                     ),
                     const TextFieldSpacing(),

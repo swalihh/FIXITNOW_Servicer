@@ -16,7 +16,7 @@ class Validations {
 
   static String? isPassword(String? value) {
     if (value == null || value.isEmpty) return 'Password is Required';
-    if (value.length < 6) return 'Password requires at least 8 characters';
+    if (value.length < 8) return 'Password requires at least 8 characters';
     return null;
   }
 
