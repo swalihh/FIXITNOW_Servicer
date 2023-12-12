@@ -14,6 +14,13 @@ class AuthRepo {
     final url = '${AppUrl.register}/$userid';
     return await ApiServices.postApi(rawData, url);
   }
+
+EitherResponse getuser()async=>
+await ApiServices.getApi(AppUrl.userData+userid.toString(),);
+final url=AppUrl.login;
+EitherResponse login(var rawdata)async =>
+await ApiServices.postApi( rawdata,url );
+
 }
 
 //10.0.2.2

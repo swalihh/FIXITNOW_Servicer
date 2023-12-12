@@ -5,4 +5,5 @@ class Appcolor{
   static const secondaryColor = Color(0xff232323);
   static const backgroundColor =Color(0xffF4F4F4) ;
   static const success=Color.fromARGB(255, 10, 116, 44);
+  static const primerycolor=Color(0xFF407BFF);
 }

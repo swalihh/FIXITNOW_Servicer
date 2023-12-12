@@ -15,12 +15,15 @@ Future<void> init() async{
 
 storage(int id)async{
    await prefs.setInt("data", id);
-   print('stor the id in sharedprf $id');
 }
 getstorage(){
   var id=   prefs.getInt("data");
-  print('in storage $id');
+  // print('in storage $id');
   return id;
 
 }
+removerId(){
+  prefs.remove('data');
+}
+
 }

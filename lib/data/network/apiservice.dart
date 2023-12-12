@@ -36,9 +36,11 @@ class ApiServices {
   }
 
   static EitherResponse getApi(String url, [String? userId]) async {
+    print(url);
     final uri = Uri.parse(url);
     if (userId != null) {
       _headers['userId'] = userId;
+
     }
     dynamic fetchedData;
     try {

@@ -1,6 +1,7 @@
  class AppUrl{
-
-static const String userSignup='http://10.4.4.171:5000/servicer/signup';
-static const String register ='http://10.4.4.171:5000/servicer/adddocuments';  
-
+static const String _baseUrl='http://10.4.4.171:5000/servicer';
+static const String userSignup='$_baseUrl/signup';
+static const String register ='$_baseUrl/adddocuments';  
+static const String userData ='$_baseUrl/getdetails/';
+static const String login='$_baseUrl/login';
  }

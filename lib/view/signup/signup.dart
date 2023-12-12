@@ -7,7 +7,7 @@ import 'package:servicer/resources/widgets/sizedbox.dart';
 import 'package:servicer/utils/fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/utils/validations.dart';
-import 'package:servicer/view/otpfirst.dart';
+import 'package:servicer/view/signup/otpfirst.dart';
 class SignUp extends StatelessWidget {
   SignUp({super.key});
   final nameController = TextEditingController();

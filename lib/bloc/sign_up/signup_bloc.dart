@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/repositories/authrepos.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
 

@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/data/network/firebasestorage.dart';
 import 'package:servicer/repositories/authrepos.dart';
 part 'register_event.dart';

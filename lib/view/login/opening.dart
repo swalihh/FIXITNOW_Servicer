@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:servicer/view/login.dart';
-import 'package:servicer/view/signup.dart';
+import 'package:servicer/view/login/login.dart';
+import 'package:servicer/view/signup/signup.dart';
 
 class Opening extends StatelessWidget {
   const Opening({super.key});
@@ -64,7 +64,7 @@ class Opening extends StatelessWidget {
                         ElevatedButton(
                       style: const ButtonStyle(backgroundColor:MaterialStatePropertyAll(Color.fromARGB(255, 255, 255, 255))),
                       onPressed: (){
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) =>const Login(),));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => Login(),));
                       }, child: const Text('     Login      ',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),))
                   ],
                 ),

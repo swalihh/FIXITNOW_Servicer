@@ -2,15 +2,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:servicer/bloc/login/bloc/login_bloc.dart';
 import 'package:servicer/bloc/register/register_bloc.dart';
 import 'package:servicer/bloc/sign_up/signup_bloc.dart';
-
+import 'package:servicer/bloc/waiting/bloc/approvel_bloc.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
-import 'package:servicer/view/opening.dart';
-import 'package:servicer/view/register.dart';
-
-
-import 'firebase_options.dart';
+import 'package:servicer/view/home/bottombar.dart';
+import 'package:servicer/view/splash/splashscreen.dart';
+ import 'firebase_options.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   Sharedprfe.instance.init();
@@ -29,11 +28,13 @@ class Myapp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => SignupBloc()),
-        BlocProvider(create: (context) => RegisterBloc(),)
+        BlocProvider(create: (context) => RegisterBloc(),),
+        BlocProvider(create: (context) => ApprovelBloc(),),
+        BlocProvider(create: (context) => LoginBloc(),)
       ],
-      child:  MaterialApp(
+      child:  const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:  Opening(),
+        home:   ScreenParant(),
       ),
     );
   }

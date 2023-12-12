@@ -17,7 +17,7 @@ import 'package:servicer/resources/widgets/sizedbox.dart';
 import 'package:servicer/utils/fonts.dart';
 import 'package:servicer/utils/image_picker.dart';
 import 'package:servicer/utils/validations.dart';
-import 'package:servicer/view/waitingpage.dart';
+import 'package:servicer/view/signup/waitingpage.dart';
 
 class Registeration extends StatelessWidget {
   Registeration({super.key});
@@ -166,8 +166,8 @@ class Registeration extends StatelessWidget {
                      //   print(state);
                         if(state is RegisterSuccessState){
                        
-                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>const Waiting(),), (route) => false);
-                               Flushbar(
+                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Waiting(),), (route) => false);
+                               Flushbar(flushbarPosition: FlushbarPosition.TOP,
                                 flushbarStyle: FlushbarStyle.FLOATING,
                             title: Loginstring.success,
                             message:
@@ -183,7 +183,15 @@ class Registeration extends StatelessWidget {
                             ],
                           ).show(context);
                         }else if(state is RegisterErrorState){
-                    //      print('error');
+                          Flushbar(
+                         title: state.message,
+                         backgroundColor: Appcolor.errorcolor,
+                         flushbarPosition: FlushbarPosition.TOP,
+                         duration: const Duration(seconds: 3),
+
+                          ).show(context);
+                  
+
                         }
                       },
                       builder: (context, state) {
