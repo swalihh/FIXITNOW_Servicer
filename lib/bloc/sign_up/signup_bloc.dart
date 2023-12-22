@@ -12,7 +12,6 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
   SignupBloc() : super(SignupInitial()) {
     on<SignupUserEvent>(signupUser);
     on<OtpValidationEvent>(validateOtp);
-   // on<ServicerRegistrationEvent>(registration);
   }
   late int otpfromApi;
   late int id;
@@ -51,23 +50,4 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     }
   }
 
-//   FutureOr<void> registration(ServicerRegistrationEvent event, Emitter<SignupState> emit) {
-//     Future getImageUrlFromFirebase( image) async {
-   
-//     String? imageFirebaseUrl;
-//     {
-//       String uniqueName = DateTime.now().millisecond.toString();
-//       Reference fireBaseRootReference = FirebaseStorage.instance.ref();
-//       Reference toUploadImgReference =
-//           fireBaseRootReference.child('myPictures$uniqueName.png');
-//       try {
-//         await toUploadImgReference.putFile(File(image));
-//         imageFirebaseUrl = await toUploadImgReference.getDownloadURL();
-//         return imageFirebaseUrl;
-//       } catch (e) {
-//         return null;
-//  }
-// }
-// }
-//   }
 }

@@ -8,7 +8,6 @@ import 'package:servicer/bloc/sign_up/signup_bloc.dart';
 import 'package:servicer/bloc/waiting/bloc/approvel_bloc.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
 import 'package:servicer/view/home/bottombar.dart';
-import 'package:servicer/view/splash/splashscreen.dart';
  import 'firebase_options.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();

@@ -24,7 +24,7 @@ class ApiServices {
       print(fetchedData);
       return Right(fetchedData);
     } on SocketException {
-      print('socket ');
+      print('socket exception ');
       return Left(InternetException());
     } on http.ClientException {
       
