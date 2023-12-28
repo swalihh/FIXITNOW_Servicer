@@ -5,9 +5,10 @@ import 'package:servicer/resources/strings/login0string.dart';
 import 'package:servicer/utils/fonts.dart';
 
 class DropDownWid extends StatefulWidget {
+  final Function(String?) onSelected;
   final TextEditingController controller;
 
-  const DropDownWid({super.key, required this.controller});
+  const DropDownWid({super.key, required this.onSelected, required this.controller});
 
   @override
   State<DropDownWid> createState() => _DropDownWidState();
@@ -62,6 +63,7 @@ class _DropDownWidState extends State<DropDownWid> {
                 customText = "";
                 othersInputController.text = "";
               }
+
             });
           },
         ),
@@ -70,7 +72,10 @@ class _DropDownWidState extends State<DropDownWid> {
           child: Column(
             children: [
               const SizedBox(height: 8),
-              TextField(
+              TextField(onChanged: (value) {
+                 widget.onSelected(value);
+                  
+              },
                 controller: othersInputController,
                 decoration: const InputDecoration(
                   hintText: "Enter service details",

@@ -24,6 +24,7 @@ class Registeration extends StatelessWidget {
   TextEditingController dropdowncontroller = TextEditingController();
   File? image;
   File? document;
+  String? jobtype;
   final fullnamecontroller = TextEditingController();
   final descriptioncontroller = TextEditingController();
   final amountcontroller = TextEditingController();
@@ -67,7 +68,10 @@ class Registeration extends StatelessWidget {
                       maxLines: 4,
                     ),
                     const TextFieldSpacing(),
-                    DropDownWid(controller: dropdowncontroller),
+                    DropDownWid(controller: dropdowncontroller,onSelected: (selectedValue) {
+    // Do something with the selected value (in this case, update the jobtype variable)
+    jobtype = selectedValue;
+  },),
 
                     const TextFieldSpacing(),
 
@@ -203,7 +207,7 @@ class Registeration extends StatelessWidget {
                                 SubmitButtonClickedEvent( 
                                     fullname: fullnamecontroller.text,
                                     description: descriptioncontroller.text,
-                                    jobType: dropdowncontroller.text,
+                                    jobType: jobtype?? dropdowncontroller.text,
                                     amount: amountcontroller.text,
                                     location: locationcontroller.text));
                             }

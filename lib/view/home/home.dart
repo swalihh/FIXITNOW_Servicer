@@ -20,7 +20,9 @@ class Home extends StatelessWidget {
             ),
             backgroundColor: Appcolor.backgroundColor,
             leading: const CircularAvatarWidget(
-                imagePath: 'assets/images/plumber.jpg')),
+                imagePath: 'assets/images/plumber.jpg')
+                
+                ),
       ),
     );
   }

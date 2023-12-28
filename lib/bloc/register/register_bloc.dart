@@ -42,13 +42,10 @@ Map<String, File> images={
      verificationDocument['description']=event.description;
      verificationDocument['servicecatagory']=event.jobType;
      verificationDocument['amount']=int.parse(event.amount);
-     verificationDocument['location']=event.description;
+     verificationDocument['location']=event.location;
      verificationDocument['servicerimage']=await addTofirebase(images['image']);
     verificationDocument['servicerdocument']= await addTofirebase(images['document']);
-    print('-----------------------------------------77777777777777777777777777777777777777777777777777777');
-print(verificationDocument['servicerimage']);
-print(verificationDocument['servicerdocument']);
-
+   
 
    
 

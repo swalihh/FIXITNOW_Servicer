@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/bloc/waiting/bloc/approvel_bloc.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
-import 'package:servicer/view/home/home.dart';
+import 'package:servicer/view/home/bottombar.dart';
 import 'package:servicer/view/login/opening.dart';
 
 class Splash extends StatelessWidget {
@@ -30,7 +30,7 @@ if(id !=null) {
 // ignore: use_build_context_synchronously
 context.read<ApprovelBloc>().add(UserDataFetchingEvent());
 // ignore: use_build_context_synchronously
-Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Home(),));
+Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Start(),));
 }else{
 // ignore: use_build_context_synchronously
 Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => const Opening(),));

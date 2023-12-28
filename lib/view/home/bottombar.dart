@@ -4,14 +4,14 @@ import 'package:servicer/view/home/completed.dart';
 import 'package:servicer/view/home/request.dart';
 import 'package:servicer/view/home/home.dart';
 
-class ScreenParant extends StatefulWidget {
-  const ScreenParant({super.key});
+class Start extends StatefulWidget {
+  const Start({super.key});
 
   @override
-  State<ScreenParant> createState() => _ScreenParantState();
+  State<Start> createState() => _StartState();
 }
 
-class _ScreenParantState extends State<ScreenParant> {
+class _StartState extends State<Start> {
   int currentPage = 0;
   List<Widget> pages = [const Home(), const Requests(), const Completed()];
   @override
