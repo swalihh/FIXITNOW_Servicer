@@ -3,7 +3,8 @@ import 'package:servicer/data/sharedpreference/sharedpref.dart';
 import 'package:servicer/resources/app_urls/apurls.dart';
 
 class AuthRepo {
-  final userid = Sharedprfe.instance.getstorage();
+  final id = Sharedprfe.instance.getstorage();
+  final userid=Sharedprfe.instance.tempgetstorage();
 
   EitherResponse userSignup(var rawData) async {
     const url = AppUrl.userSignup;
@@ -16,7 +17,7 @@ class AuthRepo {
   }
 
   EitherResponse getuser() async => await ApiServices.getApi(
-        AppUrl.userData + userid.toString(),
+        AppUrl.userData + id.toString(),
       );
 
   final url = AppUrl.login;

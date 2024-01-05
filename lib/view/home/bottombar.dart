@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:servicer/resources/constants/colors.dart';
-import 'package:servicer/view/home/completed.dart';
-import 'package:servicer/view/home/request.dart';
+import 'package:servicer/view/home/booking/completed.dart';
+import 'package:servicer/view/home/status.dart';
 import 'package:servicer/view/home/home.dart';
 
 class Start extends StatefulWidget {
@@ -13,7 +13,7 @@ class Start extends StatefulWidget {
 
 class _StartState extends State<Start> {
   int currentPage = 0;
-  List<Widget> pages = [const Home(), const Requests(), const Completed()];
+  List<Widget> pages = [ Home(), const StatusTab(), const Completed()];
   @override
   Widget build(BuildContext context) {
     return Stack(

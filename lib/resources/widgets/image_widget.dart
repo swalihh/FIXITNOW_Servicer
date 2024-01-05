@@ -1,7 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:servicer/resources/widgets/sizedbox.dart';
-import 'package:servicer/utils/fonts.dart';
+import 'package:servicer/resources/constants/fonts.dart';
 
 class ImageContainer extends StatelessWidget {
   final String? labelText;

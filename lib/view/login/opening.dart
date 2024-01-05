@@ -29,7 +29,7 @@ class Opening extends StatelessWidget {
               decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   colors: [
-                    Color.fromARGB(255, 64, 123, 255),
+                    Color.fromARGB(255, 0, 0, 0),
                     Color.fromARGB(75, 0, 0, 0),
                   ],
                   begin: Alignment.bottomCenter,

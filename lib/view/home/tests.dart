@@ -12,7 +12,7 @@ class Test extends StatelessWidget {
       appBar: AppBar(leading: IconButton(onPressed: (
 
       ){
-        Sharedprfe.instance.removerId();
+       // Sharedprfe.instance.removerId();
         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>  Opening(),), (route) => false);
       }, icon:const Icon(Icons.abc)),),
     );

@@ -8,7 +8,7 @@ import 'package:servicer/resources/constants/colors.dart';
 import 'package:servicer/resources/strings/login0string.dart';
 import 'package:servicer/resources/widgets/elevatedbutton.dart';
 import 'package:servicer/resources/widgets/sizedbox.dart';
-import 'package:servicer/utils/fonts.dart';
+import 'package:servicer/resources/constants/fonts.dart';
 import 'package:servicer/view/signup/register.dart';
 
 class Otpfirst extends StatelessWidget {

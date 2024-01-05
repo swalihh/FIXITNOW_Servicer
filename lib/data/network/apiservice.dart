@@ -4,20 +4,25 @@ import 'package:either_dart/either.dart';
 import 'package:http/http.dart' as http;
 import 'package:servicer/utils/appexception.dart';
 
-typedef   EitherResponse<T>= Future <Either<AppException,T>>;
+typedef EitherResponse<T> = Future<Either<AppException, T>>;
+
 class ApiServices {
   static final _headers = {'Content-Type': 'application/json'};
 
-  static EitherResponse<Map> postApi(var rawData, String url,
-     ) async {
+  static EitherResponse<Map> postApi(
+    var rawData,
+    String url,
+  ) async {
     Map fetchedData = {};
     final uri = Uri.parse(url);
     final body = jsonEncode(rawData);
+    // print('------------------$uri=========$body==========');
+    print('------------------$uri====');
+
     try {
       final response = await http.post(uri, body: body, headers: _headers);
-      print('row data ----------------------------daata');
-    print(rawData
-    );
+      // print('row data ----------------------------daata');
+      // print(rawData);
       fetchedData = _getResponse(response);
       print('response ----------------------------daata');
 
@@ -27,7 +32,6 @@ class ApiServices {
       print('socket exception ');
       return Left(InternetException());
     } on http.ClientException {
-      
       return Left(RequestTimeOUtException());
     } catch (e) {
       print(e);
@@ -40,7 +44,6 @@ class ApiServices {
     final uri = Uri.parse(url);
     if (userId != null) {
       _headers['userId'] = userId;
-
     }
     dynamic fetchedData;
     try {
@@ -81,6 +84,7 @@ class ApiServices {
     dynamic fetchedData;
 
     try {
+      print('$uri===============delete url');
       final response = await http.delete(uri, headers: _headers);
       fetchedData = _getResponse(response);
       print(fetchedData.body);

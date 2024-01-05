@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/data/sharedpreference/sharedpref.dart';
 import 'package:servicer/repositories/authrepos.dart';
-
 part 'login_event.dart';
 part 'login_state.dart';
 
@@ -20,7 +19,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
     either.fold((error) => emit(UserLoginErorrState(message: error.message)),
         (response) {
-          Sharedprfe.instance.storage(response['id']);
+      Sharedprfe.instance.storage(response['id']);
       emit(UserLoginSuccessState());
     });
   }

@@ -30,7 +30,7 @@ class CircularAvatarWidget extends StatelessWidget {
         border: Border.all(color: Appcolor.primerycolor, width: 2),
         image: DecorationImage(
           image: imageProvider,
-          fit: BoxFit.fill,
+          fit: BoxFit.contain ,
         ),
       ),
     );

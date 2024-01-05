@@ -2,7 +2,7 @@ import 'package:animated_custom_dropdown/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:servicer/resources/strings/login0string.dart';
-import 'package:servicer/utils/fonts.dart';
+import 'package:servicer/resources/constants/fonts.dart';
 
 class DropDownWid extends StatefulWidget {
   final Function(String?) onSelected;

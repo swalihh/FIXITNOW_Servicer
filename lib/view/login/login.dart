@@ -2,12 +2,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:servicer/bloc/acceptesuser/bloc/acceptedusers_bloc.dart';
+import 'package:servicer/bloc/getbookings/bloc/bookings_bloc.dart';
+import 'package:servicer/bloc/history/bloc/history_bloc.dart';
 import 'package:servicer/bloc/login/bloc/login_bloc.dart';
+import 'package:servicer/bloc/waiting/bloc/approvel_bloc.dart';
 import 'package:servicer/resources/strings/login0string.dart';
 import 'package:servicer/resources/widgets/loadingbutton.dart';
 import 'package:servicer/resources/widgets/textfield.dart';
 import 'package:servicer/utils/validations.dart';
-import 'package:servicer/view/home/home.dart';
+import 'package:servicer/view/home/bottombar.dart';
 
 class Login extends StatelessWidget {
    Login({super.key});
@@ -92,7 +96,11 @@ class Login extends StatelessWidget {
 
                         //   ).show(context);
                       }else if(state is UserLoginSuccessState){
-                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => const Home(),), (route) => false);
+                        context.read<ApprovelBloc>().add(UserDataFetchingEvent());
+      context.read<BookingsBloc>().add(GetAllBookings());
+      context.read<AcceptedusersBloc>().add(FetchAcceptedUserDetailsEvent());
+      context.read<HistoryBloc>().add(FetchCompletedDetailsEvent());
+                        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>  const Start(),), (route) => false);
                       }
                     },
                     builder: (context, state) {

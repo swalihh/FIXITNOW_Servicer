@@ -13,7 +13,7 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     on<SignupUserEvent>(signupUser);
     on<OtpValidationEvent>(validateOtp);
   }
-  late int otpfromApi;
+   int? otpfromApi;
   late int id;
 
   FutureOr<void> signupUser(
@@ -29,12 +29,19 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
     data.fold((error) {
       //print('error ${error.message}');
       emit(SignUpErrorState(message: error.message));
-    }, (responce)  {
+    }, (responce) {
       print(responce);
       otpfromApi = int.parse(responce['otp']);
-      id =responce['id'];
-       Sharedprfe.instance.storage(id);
-      // print(otpfromApi);
+      id = responce['id'];
+      Sharedprfe.instance.tempStorage(id);
+      Sharedprfe.instance.registerCheck(key: 'otpValidation', value: false);
+      if(otpfromApi!=null){
+        Sharedprfe.instance.addOtp(otpfromApi!);
+      }
+      otpfromApi=Sharedprfe.instance.getOtp(key: 'otp');
+
+
+      print("---------------------------------------- otp new one issssssssssssssss   $otpfromApi");
       // print(id);
       //shared preference
       emit(SignUpSuccessState());
@@ -43,11 +50,17 @@ class SignupBloc extends Bloc<SignupEvent, SignupState> {
 
   FutureOr<void> validateOtp(
       OtpValidationEvent event, Emitter<SignupState> emit) {
+      otpfromApi=Sharedprfe.instance.getOtp(key: 'otp');
+
     if (event.otp == otpfromApi) {
+      Sharedprfe.instance.registerCheck(key: 'otpValidation', value: true);
+        Sharedprfe.instance.registerCheck(key: 'registerValidation',value: false);
+
       emit(OtpMatchedState());
     } else {
+      Sharedprfe.instance.registerCheck(key: 'otpValidation', value: false);
+
       emit(OtpNotMatchState());
     }
   }
-
 }

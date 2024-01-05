@@ -4,7 +4,7 @@ import 'package:servicer/resources/strings/login0string.dart';
 import 'package:servicer/resources/widgets/loadingbutton.dart';
 import 'package:servicer/resources/widgets/signuotextfield.dart';
 import 'package:servicer/resources/widgets/sizedbox.dart';
-import 'package:servicer/utils/fonts.dart';
+import 'package:servicer/resources/constants/fonts.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:servicer/utils/validations.dart';
 import 'package:servicer/view/signup/otpfirst.dart';

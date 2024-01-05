@@ -14,7 +14,7 @@ import 'package:servicer/resources/widgets/image_widget.dart';
 import 'package:servicer/resources/widgets/loadingbutton.dart';
 import 'package:servicer/resources/widgets/signuotextfield.dart';
 import 'package:servicer/resources/widgets/sizedbox.dart';
-import 'package:servicer/utils/fonts.dart';
+import 'package:servicer/resources/constants/fonts.dart';
 import 'package:servicer/utils/image_picker.dart';
 import 'package:servicer/utils/validations.dart';
 import 'package:servicer/view/signup/waitingpage.dart';
@@ -68,10 +68,12 @@ class Registeration extends StatelessWidget {
                       maxLines: 4,
                     ),
                     const TextFieldSpacing(),
-                    DropDownWid(controller: dropdowncontroller,onSelected: (selectedValue) {
-    // Do something with the selected value (in this case, update the jobtype variable)
-    jobtype = selectedValue;
-  },),
+                    DropDownWid(
+                      controller: dropdowncontroller,
+                      onSelected: (selectedValue) {
+                        jobtype = selectedValue;
+                      },
+                    ),
 
                     const TextFieldSpacing(),
 
@@ -79,71 +81,77 @@ class Registeration extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        InkWell(onTap: () async {
-                          final document = await ImagePickService()
-                              .pickCropImage(
-                                  cropAspectRatio: const CropAspectRatio(
-                                      ratioX: 16, ratioY: 9),
-                                  imageSource: ImageSource.gallery);
-                          if (document == null) {
-                            return;
-                          }
-                          // ignore: use_build_context_synchronously
-                          context.read<RegisterBloc>().add(DocumentpickedEvent(
-                              documentpath: File(document.path)));
-                        }, child: BlocBuilder<RegisterBloc, RegisterState>(
-                          buildWhen: (previous, current) => current is! RegisterLodingState,
-                          builder: (context, state) {
-                            if (state is ImagepickedState) {
-                              document = state.documentpath;
-                              return ImageContainer(
-                                imageProvider: document == null
-                                    ? null
-                                    : FileImage(File(document!.path)),
-                                labelText: 'Verification Document',
-                              );
-                            } else {
-                              // ignore: prefer_const_constructors
-                              return ImageContainer(
-                                labelText: 'Verifiacation Document',
-                                childText: ' Add Document',
-                              );
-                            }
-                          },
-                        )),
+                        InkWell(
+                            onTap: () async {
+                              final document = await ImagePickService()
+                                  .pickCropImage(
+                                      cropAspectRatio: const CropAspectRatio(
+                                          ratioX: 16, ratioY: 9),
+                                      imageSource: ImageSource.gallery);
+                              if (document == null) {
+                                return;
+                              }
+                              // ignore: use_build_context_synchronously
+                              context.read<RegisterBloc>().add(
+                                  DocumentpickedEvent(
+                                      documentpath: File(document.path)));
+                            },
+                            child: BlocBuilder<RegisterBloc, RegisterState>(
+                              buildWhen: (previous, current) =>
+                                  current is! RegisterLodingState,
+                              builder: (context, state) {
+                                if (state is ImagepickedState) {
+                                  document = state.documentpath;
+                                  return ImageContainer(
+                                    imageProvider: document == null
+                                        ? null
+                                        : FileImage(File(document!.path)),
+                                    labelText: 'Verification Document',
+                                  );
+                                } else {
+                                  // ignore: prefer_const_constructors
+                                  return ImageContainer(
+                                    labelText: 'Verifiacation Document',
+                                    childText: ' Add Document',
+                                  );
+                                }
+                              },
+                            )),
+                        InkWell(
+                            onTap: () async {
+                              final image = await ImagePickService()
+                                  .pickCropImage(
+                                      cropAspectRatio: const CropAspectRatio(
+                                          ratioX: 2.0, ratioY: 3.0),
+                                      imageSource: ImageSource.gallery);
+                              if (image == null) {
+                                return;
+                              }
+                              // ignore: use_build_context_synchronously
+                              context.read<RegisterBloc>().add(ImsgepickedEvent(
+                                  imagepath: File(image.path)));
+                            },
+                            child: BlocBuilder<RegisterBloc, RegisterState>(
+                              buildWhen: (previous, current) =>
+                                  current is! RegisterLodingState,
+                              builder: (context, state) {
+                                if (state is ImagepickedState) {
+                                  image = state.imagepath;
 
-                        InkWell(onTap: () async {
-                          final image = await ImagePickService().pickCropImage(
-                              cropAspectRatio:
-                                  const CropAspectRatio(ratioX: 2.0, ratioY: 3.0),
-                              imageSource: ImageSource.gallery);
-                          if (image == null) {
-                            return;
-                          }
-                          // ignore: use_build_context_synchronously
-                          context.read<RegisterBloc>().add(
-                              ImsgepickedEvent(imagepath: File(image.path)));
-                        }, child: BlocBuilder<RegisterBloc, RegisterState>(
-                          buildWhen: (previous, current) => current is ! RegisterLodingState,
-                          builder: (context, state) {
-                            
-                            if (state is ImagepickedState) {
-                              image = state.imagepath;
-
-                              return ImageContainer(
-                                imageProvider: image == null
-                                    ? null
-                                    : FileImage(File(image!.path)),
-                                labelText: 'Photo',
-                              );
-                            } else {
-                              return const ImageContainer(
-                                labelText: 'photo',
-                                childText: 'Add Photo',
-                              );
-                            }
-                          },
-                        )),
+                                  return ImageContainer(
+                                    imageProvider: image == null
+                                        ? null
+                                        : FileImage(File(image!.path)),
+                                    labelText: 'Photo',
+                                  );
+                                } else {
+                                  return const ImageContainer(
+                                    labelText: 'photo',
+                                    childText: 'Add Photo',
+                                  );
+                                }
+                              },
+                            )),
                       ],
                     ),
                     //------------------------------------------------image picked ------------------------------------------------------------
@@ -161,55 +169,56 @@ class Registeration extends StatelessWidget {
                       validator: (p0) => Validations.isEmpty(p0, 'Location'),
                       controller: locationcontroller,
                       label: 'Location',
-                      labelStyle: TextType.labels, 
+                      labelStyle: TextType.labels,
                       prefixIcon: const Icon(Icons.location_on),
                     ),
                     const TextFieldSpacing(),
                     BlocConsumer<RegisterBloc, RegisterState>(
                       listener: (context, state) {
-                     //   print(state);
-                        if(state is RegisterSuccessState){
-                       
-                          Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) => Waiting(),), (route) => false);
-                               Flushbar(flushbarPosition: FlushbarPosition.TOP,
-                                flushbarStyle: FlushbarStyle.FLOATING,
+                        //   print(state);
+                        if (state is RegisterSuccessState) {
+                          Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(
+                                builder: (context) => Waiting(),
+                              ),
+                              (route) => false);
+                          Flushbar(
+                            flushbarPosition: FlushbarPosition.TOP,
+                            flushbarStyle: FlushbarStyle.FLOATING,
                             title: Loginstring.success,
-                            message:
-                                Loginstring.wait,
+                            message: Loginstring.wait,
                             backgroundColor: Appcolor.success,
                             duration: const Duration(seconds: 3),
-                            boxShadows: const[
+                            boxShadows: const [
                               BoxShadow(
                                 color: Appcolor.success,
-                                offset:  Offset(0.0, 2.0),
+                                offset: Offset(0.0, 2.0),
                                 blurRadius: 3.0,
                               )
                             ],
                           ).show(context);
-                        }else if(state is RegisterErrorState){
+                        } else if (state is RegisterErrorState) {
                           Flushbar(
-                         title: state.message,
-                         backgroundColor: Appcolor.errorcolor,
-                         flushbarPosition: FlushbarPosition.TOP,
-                         duration: const Duration(seconds: 3),
-
+                            title: state.message,
+                            backgroundColor: Appcolor.errorcolor,
+                            flushbarPosition: FlushbarPosition.TOP,
+                            duration: const Duration(seconds: 3),
                           ).show(context);
-                  
-
                         }
                       },
                       builder: (context, state) {
                         bool isloading = state is RegisterLodingState;
                         return Loadingbutton(
                           onPressed: () {
-                            if(registerKey.currentState!.validate()){
-                            context.read<RegisterBloc>().add(
-                                SubmitButtonClickedEvent( 
-                                    fullname: fullnamecontroller.text,
-                                    description: descriptioncontroller.text,
-                                    jobType: jobtype?? dropdowncontroller.text,
-                                    amount: amountcontroller.text,
-                                    location: locationcontroller.text));
+                            if (registerKey.currentState!.validate()) {
+                              context.read<RegisterBloc>().add(
+                                  SubmitButtonClickedEvent(
+                                      fullname: fullnamecontroller.text,
+                                      description: descriptioncontroller.text,
+                                      jobType:
+                                          jobtype ?? dropdowncontroller.text,
+                                      amount: amountcontroller.text,
+                                      location: locationcontroller.text));
                             }
                           },
                           showloader: isloading,
